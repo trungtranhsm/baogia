@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo HTML - Test Hosting</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            max-width: 600px;
+            text-align: center;
+            animation: slideUp 1s ease-out;
+        }
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        h1 { 
+            color: #4a5568; 
+            margin-bottom: 1rem;
+            font-size: 2.5rem;
+        }
+        .status {
+            background: #48bb78;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: bold;
+            margin: 2rem 0;
+            font-size: 1.2rem;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        .feature {
+            background: #f7fafc;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+        .time { 
+            color: #718096; 
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+        button {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            margin-top: 1rem;
+            transition: transform 0.3s;
+        }
+        button:hover { transform: scale(1.05); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎉 Hosting Thành Công!</h1>
+        <div class="status">File HTML đã public FREE</div>
+        
+        <p style="font-size: 1.3rem; margin-bottom: 2rem;">
+            Ngày: <strong>05/12/2025</strong> | Thời gian: <span id="time"></span>
+        </p>
+        
+        <div class="features">
+            <div class="feature">
+                <h3>✅ Responsive</h3>
+                <p>Tự động đẹp trên mobile + desktop</p>
+            </div>
+            <div class="feature">
+                <h3>✨ Animation</h3>
+                <p>Hiệu ứng mượt mà, hiện đại</p>
+            </div>
+            <div class="feature">
+                <h3>🚀 Nhanh</h3>
+                <p>Static HTML - load cực nhanh</p>
+            </div>
+            <div class="feature">
+                <h3>💯 Free Forever</h3>
+                <p>Netlify/TiinyHost/GitHub Pages</p>
+            </div>
+        </div>
+        
+        <button onclick="test()">Test Interactive</button>
+        <p class="time">Copy URL này share ngay! 👆</p>
+    </div>
+
+    <script>
+        // Update thời gian real-time
+        function updateTime() {
+            const now = new Date();
+            document.getElementById('time').textContent = 
+                now.toLocaleTimeString('vi-VN');
+        }
+        updateTime();
+        setInterval(updateTime, 1000);
+
+        // Test button interactive
+        function test() {
+            document.querySelector('.status').textContent = 
+                `Demo hoạt động tốt! ${new Date().toLocaleTimeString('vi-VN')}`;
+            document.querySelector('.status').style.background = '#ed8936';
+            setTimeout(() => {
+                document.querySelector('.status').textContent = 'File HTML đã public FREE';
+                document.querySelector('.status').style.background = '#48bb78';
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
